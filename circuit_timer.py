@@ -38,9 +38,8 @@ import random
 from math import ceil
 from playsound import playsound
 from gtts import gTTS
-if music_player_enabled:
-    import os
-    import platform
+import os
+import platform
 
 ################################################################################
 # Global variables                                                             #
