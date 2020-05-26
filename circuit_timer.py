@@ -2,19 +2,22 @@
 # Configurable                                                                 #
 ################################################################################
 
-# num_exercises = 5
-# num_circuits = 5
-# exercise_duration_sec = 40
-# circuit_break_duration_min = 3
-# switch_exercise_duration_sec = 10
-# circuit_countdown_duration_sec = 10
-num_exercises = 2
-num_circuits = 2
-exercise_duration_sec = 20
-circuit_break_duration_min = 0.33
+num_exercises = 5
+num_circuits = 5
+exercise_duration_sec = 40
+circuit_break_duration_min = 3
 switch_exercise_duration_sec = 10
 circuit_countdown_duration_sec = 10
 music_player_enabled = True
+
+# DEMO SETTINGS
+# num_exercises = 2
+# num_circuits = 2
+# exercise_duration_sec = 20
+# circuit_break_duration_min = 0.35
+# switch_exercise_duration_sec = 10
+# circuit_countdown_duration_sec = 10
+# music_player_enabled = True
 
 sound_effect_directory = "sound_effects/"
 tts_directory = "speech_cues/"
@@ -140,12 +143,12 @@ def exercise_second_half():
     global rollover_elapsed_time
     if circuit_count >= num_circuits - 2 and exercise_count >= num_exercises - 2:
         duration = exercise_half_duration_sec - countdown_sound_sec - rollover_elapsed_time
-        sleep(duration/2)
+        sleep(max(duration/2, 0))
         if exercise_count == num_exercises - 2:
             elapsed_time = say("Keep breathing!")
         elif exercise_count == num_exercises - 1:
             elapsed_time = say(random.choice(["Keep it up!", "Almost there!"]))
-        sleep(duration/2 - elapsed_time)
+        sleep(max(duration/2 - elapsed_time, 0))
         rollover_elapsed_time = 0
     else:
         sleep(max(exercise_half_duration_sec - countdown_sound_sec - rollover_elapsed_time, 0))
@@ -171,6 +174,7 @@ def circuit_end():
     if music_player_enabled: os.system(pause_music_cmd)
 
 def circuit_break():
+    print("Rest")
     elapsed_time = 0
     if circuit_count == ceil(num_circuits / 2):
         if num_circuits % 2 == 0:
