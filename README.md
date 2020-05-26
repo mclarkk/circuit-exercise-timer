@@ -1,6 +1,6 @@
-# Circuit Timer
+# Circuit Exercise Timer
 
-Circuit Timer is a program for providing timing, cueing, and optional music control for circuit exercises. The default timing configuration and sound effects mimic the at-home workouts hosted online during the coronavirus lockdown by Katherine at [Bay Strength](https://www.baystrength.com/). In no way is this program a substitute for that great community or a personal trainer.
+Circuit Excercise Timer is a program for providing timing, cueing, and optional music control for circuit exercises. The default timing configuration and sound effects mimic the at-home workouts hosted online during the coronavirus lockdown by Katherine at [Bay Strength](https://www.baystrength.com/). In no way is this program a substitute for that great community or a personal trainer.
 
 ## Install and Run
 
