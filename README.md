@@ -27,7 +27,7 @@ There are a number of configurable options, which can be found at the top of `ci
 
 ## Notes
 
-You may not need to use gTTS (Google Text-to-Speech). It is only used to create a synthetic speech file if one doesn't already exist for the utterance in question. I checked in the sound files generated for
+In many cases, you may not need to use gTTS (Google Text-to-Speech). The library is only used to create a synthetic speech file if one doesn't already exist for the utterance in question. Most of the speech files played by Circuit Exercise Timer have been checked in already.
 
 ## Sound effect sources:
 
