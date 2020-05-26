@@ -138,10 +138,13 @@ def exercise_halfway():
 
 def exercise_second_half():
     global rollover_elapsed_time
-    if circuit_count == num_circuits - 1 and exercise_count == num_exercises - 1:
+    if circuit_count >= num_circuits - 2 and exercise_count >= num_exercises - 2:
         duration = exercise_half_duration_sec - countdown_sound_sec - rollover_elapsed_time
         sleep(duration/2)
-        elapsed_time = say("Keep it up!")
+        if exercise_count == num_exercises - 2:
+            elapsed_time = say("Keep breathing!")
+        elif exercise_count == num_exercises - 1:
+            elapsed_time = say(random.choice(["Keep it up!", "Almost there!"]))
         sleep(duration/2 - elapsed_time)
         rollover_elapsed_time = 0
     else:
@@ -171,11 +174,11 @@ def circuit_break():
     elapsed_time = 0
     if circuit_count == ceil(num_circuits / 2):
         if num_circuits % 2 == 0:
-            elapsed_time += say("Woo! Halfway done!")
+            elapsed_time += say("Halfway done!")
         else:
-            elapsed_time += say("Woo! Over halfway done!")
-    elapsed_time += say(random.choice(["Good job!", "Woo",
-        "Did you do anything fun this weekend?",
+            elapsed_time += say("Over halfway done!")
+    elapsed_time += say(random.choice(["Good job!", "Well done", "Yay",
+    "Great moves", "Did you do anything fun this weekend?",
         "Nice hustle", "You're doing great",
         "Nice work", "Have any plans for this weekend?"]))
     sleep(max(circuit_break_duration_sec - circuit_countdown_duration_sec - elapsed_time, 0))
